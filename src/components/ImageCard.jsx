@@ -2,6 +2,7 @@ import { ImageListItem } from '@mui/material';
 import VanillaTilt from "vanilla-tilt";
 import React, { useCallback, useState, useEffect, useRef } from "react";
 import { Controlled as ControlledZoom } from 'react-medium-image-zoom'
+import '../styling/ImageCard.css'
 import 'react-medium-image-zoom/dist/styles.css'
 
 const ImageCard = (image, index) => {
