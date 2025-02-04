@@ -1,32 +1,23 @@
 import React from 'react';
 import {
-  Grid2,
-  Typography,
   ImageList,
-  ImageListItem,
 } from '@mui/material';
 import ResponsiveAppBar from './components/ResponsiveAppBar';
+import ImageCard from './components/ImageCard';
 
 const images = import.meta.glob('/images/*.{png,jpg,jpeg,svg}', { eager: true });
 
 function App() {
   console.log(Object.keys(images))
   return (
-    <Grid2>
+    <div>
       <ResponsiveAppBar></ResponsiveAppBar>
-      <ImageList variant="masonry" cols={4} gap={8} sx={{ paddingInline: '5rem' }}>
+      <ImageList variant="masonry" cols={4} gap={28} sx={{ paddingInline: '5rem', paddingTop: '2rem' }}>
         {Object.keys(images).map((image, index) => (
-          <ImageListItem key={index}>
-            <img
-              srcSet={`${image}?w=248&fit=crop&auto=format&dpr=2 2x`}
-              src={`${image}?w=248&fit=crop&auto=format`}
-              alt={image}
-              loading="lazy"
-            />
-          </ImageListItem>
+          ImageCard(image,index)
         ))}
       </ImageList>
-    </Grid2>
+    </div>
   );
 }
 
