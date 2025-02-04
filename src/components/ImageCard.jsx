@@ -14,19 +14,21 @@ const ImageCard = (image, index) => {
     }, )
 
     useEffect(() => {
-        VanillaTilt.init(tiltRef.current, {
-            max: 10,           
-            speed: 400,        
-            glare: true,       
-            "max-glare": 0.5,  
-        });
+        if (tiltRef.current && !isZoomed) {
+            VanillaTilt.init(tiltRef.current, {
+                max: 10,           
+                speed: 400,        
+                glare: true,       
+                "max-glare": 0.5,  
+            });
+        }
 
         return () => {
-        if (tiltRef.current?.vanillaTilt) {
-            tiltRef.current.vanillaTilt.destroy();
-        }
+            if (tiltRef.current?.vanillaTilt) {
+                tiltRef.current.vanillaTilt.destroy();
+            }
         };
-    }, []);
+    }, [isZoomed]);
     
     return (
         <ControlledZoom
