@@ -31,7 +31,7 @@ function ResponsiveAppBar() {
 	};
 
 	return (
-		<AppBar position="static" sx={{ background: "#020715" }}>
+		<AppBar position="static">
 			<Container
 				maxWidth="xl"
 				sx={{
