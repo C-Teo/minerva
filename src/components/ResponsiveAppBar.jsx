@@ -12,10 +12,10 @@ import MenuItem from "@mui/material/MenuItem";
 import BrushIcon from "@mui/icons-material/Brush";
 
 const pages = [
-	"Illustration",
-	"Animation",
-	"3D Modelling",
 	"About Me",
+	"Illustration",
+	"3D Modelling",
+	"Animation",
 	"Contact Me",
 ];
 
@@ -89,6 +89,7 @@ function ResponsiveAppBar() {
 						sx={{
 							flexGrow: 1,
 							display: { xs: "none", md: "flex" },
+							gap: "4rem",
 						}}
 					>
 						{pages.map((page) => (
