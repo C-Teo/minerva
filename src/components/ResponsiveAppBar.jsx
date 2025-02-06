@@ -11,12 +11,14 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import BrushIcon from "@mui/icons-material/Brush";
 
+import { Link } from "react-router-dom";
+
 const pages = [
-	"About Me",
-	"Illustration",
-	"3D Modelling",
-	"Animation",
-	"Contact Me",
+	{ title: "About Me", link: "/" },
+	{ title: "Illustration", link: "/illustrations" },
+	{ title: "3D Modelling", link: "/modelling" },
+	{ title: "Animation", link: "/animation" },
+	{ title: "Contact Me", link: "/" },
 ];
 
 function ResponsiveAppBar() {
@@ -94,11 +96,13 @@ function ResponsiveAppBar() {
 					>
 						{pages.map((page) => (
 							<Button
-								key={page}
+								component={Link}
+								to={page.link}
+								key={page.title}
 								onClick={handleCloseNavMenu}
 								sx={{ my: 2, color: "white", display: "block" }}
 							>
-								{page}
+								{page.title}
 							</Button>
 						))}
 					</Box>
@@ -131,8 +135,15 @@ function ResponsiveAppBar() {
 							sx={{ display: { xs: "block", md: "none" } }}
 						>
 							{pages.map((page) => (
-								<MenuItem key={page} onClick={handleCloseNavMenu}>
-									<Typography sx={{ textAlign: "center" }}>{page}</Typography>
+								<MenuItem
+									component={Link}
+									to={page.link}
+									key={page.title}
+									onClick={handleCloseNavMenu}
+								>
+									<Typography sx={{ textAlign: "center" }}>
+										{page.title}
+									</Typography>
 								</MenuItem>
 							))}
 						</Menu>

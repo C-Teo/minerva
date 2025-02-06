@@ -5,7 +5,7 @@ import ImageCard from "./../components/ImageCard";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 
-const images = import.meta.glob("/images/*.{png,jpg,jpeg,svg}", {
+const images = import.meta.glob("/images/illustrations/*.{png,jpg,jpeg,svg}", {
 	eager: true,
 });
 
